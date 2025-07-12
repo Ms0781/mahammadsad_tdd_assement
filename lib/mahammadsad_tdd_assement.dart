@@ -9,9 +9,19 @@ int? add(String numbers) {
     return numbers.replaceAll("\n", ",").split(",").map((e) => int.tryParse(e.trim()) ?? 0).reduce((a,b) => a + b);
   }
 
+
+
+  final numList =  numbers.split(",")
+      .map((s) => s.trim());
+
+  //Calling add with a negative number will throw an exception: "negative numbers not allowed <negative_number>".
+  final negatives = numList.map((e) => int.tryParse(e)).toList().where((n) => (n ?? -1) < 0 ).toList();
+  if (negatives.isNotEmpty) {
+    throw Exception('negatives not allowed: ${negatives.join(',')}');
+  }
+
   //Allow the add method to handle any amount of numbers.
-  return numbers
-        .split(',')
+  return numList
         .map((e) => int.tryParse(e.trim()) ?? 0)
         .reduce((a, b) => a + b);
 }

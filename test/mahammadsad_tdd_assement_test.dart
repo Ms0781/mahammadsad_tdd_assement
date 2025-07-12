@@ -20,5 +20,16 @@ void main() {
   });
 
 
+  //Case : Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed.
+  test("Calling Add with a negative number will throw an error.", (){
+    expect(() => add("0,-1,2"), throwsA(predicate((e) =>
+    e is Exception && e.toString().contains('negatives not allowed: -1')
+    )));
+  });
+
+  test("Calling Add with a negative number will throw an error.", (){
+    expect(() => add("-1,-2,-3,5"), throwsA(predicate((e) => e is Exception && e.toString().contains('negatives not allowed: -1,-2,-3'))));
+  });
+
 
 }
