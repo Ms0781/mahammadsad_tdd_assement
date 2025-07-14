@@ -1,4 +1,4 @@
-# Dart Test Assessment – String Calculator(Mahammadsad Shaikh)
+# Test Assessment – String Calculator(Mahammadsad Shaikh)
 
 This is a simple Dart project built as part of a coding assessment. The main goal of the project is to implement a string calculator function that takes a string of numbers and returns their sum. The calculator handles different test cases.
 
